@@ -1,47 +1,35 @@
 import React from "react";
+import { Nav, Navbar, Container, NavDropdown,  } from "react-bootstrap";
+import CartWidget from "./CartWidget";
 
-let ulStyle = {
-    color: 'white'
-};
 
-function NavBar() {
+function NavBarF() {
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">ArtWeb</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Explore</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Create</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Profile
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Profile</a></li>
-                      <li><a class="dropdown-item" href="#">Settings</a></li>
-                      <li><a class="dropdown-item" href="#">My wallet</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                  <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-        </nav>
+    <Navbar fixed='top' collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+      <Navbar.Brand href="#home">Img</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+      
+        <Nav className="me-auto">
+          <Nav.Link href="#explore">Explore</Nav.Link>
+          <Nav.Link href="#">Create</Nav.Link>
+          <Nav.Link href="#">About</Nav.Link>
+          <CartWidget />
+        </Nav>
+        <Nav className="me-auto">
+          <NavDropdown title="Profile" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Perfil</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">Mis colecciones</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Wallet</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">Cerrar sesión</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+      </Navbar.Collapse>
+      </Container>
+    </Navbar>
     );
 };
 
-export default NavBar;
+export default NavBarF;
