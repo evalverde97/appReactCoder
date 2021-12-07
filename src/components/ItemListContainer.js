@@ -1,7 +1,8 @@
 import React, { useState} from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, CarouselItem } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* function ItemListContainer() {
+  function ItemListContainer(props) {
     const [index, setIndex] = useState(0);
   
     const handleSelect = (selectedIndex, e) => {
@@ -10,10 +11,11 @@ import { Carousel } from "react-bootstrap";
   
     return (
       <Carousel activeIndex={index} onSelect={handleSelect}>
+        <h1> Bienvenido {props.greeting}!</h1>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=First slide&bg=373940"
+            src="./assets/BAYC#8746.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -36,7 +38,7 @@ import { Carousel } from "react-bootstrap";
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Third slide&bg=20232a"
+            src=".\components\assets\BAYC#20.jpg"
             alt="Third slide"
           />
   
@@ -51,11 +53,4 @@ import { Carousel } from "react-bootstrap";
     );
   }
   
-render(<ItemListContainer/>, document.getElementById("root")); */
-function ItemListContainer(props){
-    return(
-        <h2>ítems de carrito: {props.greeting}</h2>
-    );
-}
-
 export default ItemListContainer;

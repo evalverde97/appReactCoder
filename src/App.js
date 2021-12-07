@@ -9,11 +9,12 @@ import { Container } from 'react-bootstrap';
 
 
 function App() {
-  return <>
+  return(
+    <Container className="app">
     <NavBarF />
-  
     <ItemListContainer greeting="GIF perro" />
-  </>;
+    </Container>
+  );
 }
 
 export default App;
