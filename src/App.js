@@ -1,20 +1,18 @@
 import './App.css';
 import React from 'react';
 import NavBarF from './components/NavBar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {} from '@fortawesome/free-solid-svg-icons'; 
 import ItemListContainer from './components/ItemListContainer';
-import { Container } from 'react-bootstrap';
+import ItemCount from './components/ItemCount';
 
 
 function App() {
-  return(
-    <Container className="app">
+  return<>
     <NavBarF />
     <ItemListContainer greeting="GIF perro" />
-    </Container>
-  );
+    <ItemCount stock={15}/>
+  </>
 }
 
 export default App;
