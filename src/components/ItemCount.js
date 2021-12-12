@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import {Container} from 'react-bootstrap';
 
 const ItemCount = ({initialValue = 0, stock}) => {
     const [count, setCount] = useState(initialValue);
     const handlerAdd = () => {
         if(count < stock) {
             setCount((prev) => prev + 1);
-        } else { alert('El item se encuentra agotado')}
+        } else { alert('No hay más unidades disponibles'); }
     };
     const handlerRemove = () => {
         if(count > 0) {
@@ -15,10 +14,11 @@ const ItemCount = ({initialValue = 0, stock}) => {
     };
 
   return (
-    <div>
-      <button onClick={handlerAdd}>+</button>
+    <div className="app">
+      <button disabled={count >= stock} onClick={()=>handlerAdd(count)}>+</button>
       <p>{count}</p>
-      <button onClick={handlerRemove}>-</button>
+      <button disabled={count <= 0} onClick={handlerRemove}>-</button>
+      <button onClick={() => onAdd(count)}>agregar al carrito</button>
     </div>
     );
 }
