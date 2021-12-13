@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NavBarF() {
     return (
-    <Navbar fixed='top' collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
       <Navbar.Brand href="#home">Img</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -17,7 +17,6 @@ function NavBarF() {
           <Nav.Link href="#explore">Explore</Nav.Link>
           <Nav.Link href="#">Create</Nav.Link>
           <Nav.Link href="#">About</Nav.Link>
-          <CartWidget />
         </Nav>
         <Nav className="me-auto">
           <NavDropdown title="Profile" id="collasible-nav-dropdown">
@@ -27,6 +26,9 @@ function NavBarF() {
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.4">Cerrar sesión</NavDropdown.Item>
           </NavDropdown>
+        </Nav>
+        <Nav>
+          <CartWidget />
         </Nav>
       </Navbar.Collapse>
       </Container>

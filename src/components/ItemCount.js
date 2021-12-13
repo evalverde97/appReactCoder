@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
+import { Button, Col, Row } from 'react-bootstrap';
 
-const ItemCount = ({initialValue = 0, stock}) => {
+const ItemCount = ({initialValue = 0, stock, onAdd}) => {
     const [count, setCount] = useState(initialValue);
     const handlerAdd = () => {
         if(count < stock) {
@@ -14,11 +15,15 @@ const ItemCount = ({initialValue = 0, stock}) => {
     };
 
   return (
-    <div className="app">
-      <button disabled={count >= stock} onClick={()=>handlerAdd(count)}>+</button>
-      <p>{count}</p>
-      <button disabled={count <= 0} onClick={handlerRemove}>-</button>
-      <button onClick={() => onAdd(count)}>agregar al carrito</button>
+    <div>  
+        <Row className="mx-5">
+            <Button className="justify-content-md-center" as={Col} disabled={count >= stock} onClick={()=>handlerAdd(count)}>+</Button>
+            <p as={Col}>{count}</p>
+            <Button className="justify-content-md-center" as={Col} disabled={count <= 0} onClick={handlerRemove}>-</Button>
+        </Row>
+        <Row>
+            <Button className="justify-content-md-center" as={Col} onClick={() => onAdd(count)}>agregar al carrito</Button>
+        </Row>
     </div>
     );
 }
