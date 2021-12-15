@@ -9,7 +9,7 @@ function NavBarF() {
     return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-      <Navbar.Brand href="#home">Img</Navbar.Brand>
+      <Navbar.Brand href="#home"><img src="src\components\assets\BAYC#20.jpg"></img></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
       

@@ -2,11 +2,10 @@
 // y lo mapeo haciendo uso del componente itemListContainer
 import Item from './Item'
 
-function ItemList ({props}) {
+function ItemList ({products}) {
     return (
         <ul>
-            {state.map(el =>
-                <Item key={el.id} item={el} title={el.title} description={el.description}/>)}
+            {products && products.map(product => <Item key={product.id} title={product.title} description={product.description} />)}
         </ul>
     )
 };
