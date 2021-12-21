@@ -2,6 +2,7 @@ import React from "react";
 import { Nav, Navbar, Container, NavDropdown,  } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavLink } from "react-router-dom";
 
 
 
@@ -14,9 +15,9 @@ function NavBarF() {
       <Navbar.Collapse id="responsive-navbar-nav">
       
         <Nav >
-          <Nav.Link href="#explore">Explore</Nav.Link>
-          <Nav.Link href="#">Create</Nav.Link>
-          <Nav.Link href="#">About</Nav.Link>
+          <Nav.Link href="#explore"><NavLink to="/explore">Explore</NavLink></Nav.Link>
+          <Nav.Link href="#"><NavLink to="/create">Create</NavLink></Nav.Link>
+          <Nav.Link href="#"><NavLink to="/about">About</NavLink></Nav.Link>
         </Nav>
         <Nav>
           <NavDropdown title="Profile" id="collasible-nav-dropdown">

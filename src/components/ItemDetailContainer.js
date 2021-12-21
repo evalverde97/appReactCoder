@@ -3,20 +3,18 @@ import {useState, useEffect} from 'react';
 
 const ItemDetailContainer = (item) => {
     const [item, setItem] = useState(null);
-    const getItem = new Promise((resolve, reject) => {
-        setTimeout(() => {
-        if(item){
-            resolve(item);
-        } else {
-            reject(new Error());
-        }
-        }, 2000)
+    const getItem = async ((resolve, reject) => {
+        const call = (setTimeout( async ({item}) => {
+            if(item){
+                resolve(item);
+            } else {
+                reject(new Error());
+            }
+        }, 2000));
+        let result = call(item);
+        setItem(result);
     });
-    useEffect(() => {
-        getItem
-        .then(res => setItem(res))
-        .catch(err => console.log(err))
-    }, [])
+    useEffect(() => {getItem},[item])
     
     return (
             item ? <ItemDetail item={item} /> : <div>Loading...</div>

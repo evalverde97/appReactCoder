@@ -1,8 +1,10 @@
 import React, { useState, useEffect} from "react";
 import ItemList from "./ItemList";
 import {products} from "../mocks/products";
+import { NavLink } from "react-router-dom";
 
 export default function ItemListContainer(props) {
+  const {id} = useParams() || "";
   const [state, setState] = useState(null);
   const API = new Promise((resolve, reject) => {
     setTimeout(() => {

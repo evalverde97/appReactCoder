@@ -2,23 +2,18 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBarF from './components/NavBar';
 import {} from '@fortawesome/free-solid-svg-icons'; 
-import ItemListContainer from './components/ItemListContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import ItemListContainer from './components/ItemListContainer';
+import ItemListDetailContainer from './components/ItemListDetailContainer';
 
-const Home = () => {
-  return(
-    <div>
-      <NavBarF />
-      <ItemListContainer />
-    </div>
-  );
-}
 
 function App() {
   return(
     <BrowserRouter>
+      <NavBarF />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<ItemListContainer />} />
+        <Route exact path="/:id" element={<ItemListDetailContainer />} />
       </Routes>
     </BrowserRouter>
   );
