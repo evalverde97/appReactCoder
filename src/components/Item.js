@@ -1,5 +1,7 @@
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import ItemCount from './ItemCount';
+import ItemDetailContainer from './ItemDetailContainer';
+import ItemListContainer from './ItemListContainer';
 
 function Item(item) {
     return (
@@ -11,6 +13,7 @@ function Item(item) {
                 {item.description}
               </Card.Text>
               <ItemCount />
+              <Button onPress={<ItemDetailContainer item={item} />}>Detalle</Button>
             </Card.Body>
         </Card>
     )

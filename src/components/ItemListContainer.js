@@ -20,7 +20,7 @@ export default function ItemListContainer(props) {
   }, [])
   
   return (
-        state ? <ItemList items={state} /> : <div>Loading...</div>
+        state ? <ItemList products={state} /> : <div>Loading...</div>
     );
 }
   

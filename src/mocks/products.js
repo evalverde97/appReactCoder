@@ -10,7 +10,7 @@ export const products = [{
     title: 'BAYC #20',
     description: 'Colection of Bored Ape Yatch Club',
     price: '$10.00',
-    pictureUrl: '..\assets\BAYC#20.jpg'
+    pictureUrl: '../logo.svg'
     }, 
     {
     id: 3,
