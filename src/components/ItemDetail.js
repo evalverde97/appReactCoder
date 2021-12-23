@@ -1,4 +1,5 @@
 // vista expandida del item con detalle y precio
+import {Container, Row, Col} from 'react-bootstrap';
 
 function ItemDetail({item}) {
     return (
@@ -18,4 +19,6 @@ function ItemDetail({item}) {
         </Container>
     )
 };
+
+export default ItemDetail;
 
