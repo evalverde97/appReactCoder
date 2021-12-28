@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import ItemList from "./ItemList";
-import {products} from "../mocks/products";
 import { Spinner } from "react-bootstrap";
+import {products} from '../mocks/products';
 
 export default function ItemListContainer() {
   const [state, setState] = useState(null);
