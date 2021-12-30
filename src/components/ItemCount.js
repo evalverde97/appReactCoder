@@ -1,7 +1,8 @@
+import { Box, Button } from '@mui/material';
 import React, {useState} from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
-const ItemCount = (initialValue = 0, stock, onAdd) => {
+const ItemCount = ({initialValue = 0, stock, onAdd}) => {
     const [count, setCount] = useState(initialValue);
     const handlerAdd = () => {
         if(count < stock) {
@@ -15,15 +16,15 @@ const ItemCount = (initialValue = 0, stock, onAdd) => {
     };
 
   return (
-    <div>  
-        <Row className="my-5">
-            <Button size='sm' className="justify-content-md-center" as={Col} disabled={count >= stock} onClick={()=>handlerAdd(count)}>+</Button>
-            <p as={Col}>{count}</p>
-            <Button size='sm' className="justify-content-md-center" as={Col} disabled={count <= 0} onClick={handlerRemove}>-</Button>
-        </Row>
-        <Row>
-            <Button variant='outline-success' className="justify-content-md-center" as={Col} onClick={() => onAdd(count)}>agregar al carrito</Button>
-        </Row>
+    <div >  
+        <Box  sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: 2, alignItems: 'center'}}>
+            <Button variant="contained" size='medium' onClick={()=>handlerAdd(count)}>+</Button>
+            <Button >{count}</Button>
+            <Button variant="contained" size='medium' onClick={handlerRemove}>-</Button>
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+            <Button onClick={() => onAdd(count)}>agregar al carrito</Button>
+        </Box>
     </div>
     );
 }

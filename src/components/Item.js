@@ -1,22 +1,30 @@
-import { Card } from 'react-bootstrap';
 import ItemCount from './ItemCount';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
 
 function Item(item) {
 
     return (
-        <Card style={{ width: '18rem', padding: '10px', margin: '10px'}} >
-        <Card.Img variant="top" src={item.image} />
-            <Card.Body>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Text>
-                {item.description}
-              </Card.Text>
-              <Card.Footer>{item.price}</Card.Footer>
-              <ItemCount stock={item.units} onAdd={(count) => console.log('COUNT', count)}  />
-            </Card.Body>
-        </Card>
+      <Card sx={{ maxWidth: 345, padding: 3, margin: 2, maxHeight: '500px'}}>
+      <CardMedia
+        component="img"
+        height="140"
+        image={item.image}
+        alt={item.description}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {item.title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {item.price}
+        </Typography>
+      </CardContent>
+      <ItemCount stock={item.units} onAdd={(count) => console.log('COUNT', count)}  /> 
+    </Card>
     )
 }
 
