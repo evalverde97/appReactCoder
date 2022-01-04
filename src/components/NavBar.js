@@ -11,11 +11,23 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { ShoppingCart } from '@mui/icons-material';
+import { Badge } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Link } from 'react-router-dom';
 
 const pages = ['Explore', 'Create', 'About'];
 const settings = ['Profile', 'Wallet', 'My Collections', 'Logout'];
 
+const UseStyles = makeStyles((theme) => ({
+  navbar: { 
+    backgroundColor: '#14213d !important' ,
+    color: 'black',
+  }
+}));
+
 const NavBarF = () => {
+  const classes = UseStyles();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -35,18 +47,16 @@ const NavBarF = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar className={classes.navbar} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-          NoFungible Store
-          </Typography>
-
+          <Link to="/">
+            <IconButton>
+              <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+              NoFungible Store
+              </Typography>
+            </IconButton>
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -132,6 +142,13 @@ const NavBarF = () => {
               ))}
             </Menu>
           </Box>
+          <Link to="/checkout">
+            <IconButton color="inherit" sx={{ mx: '45px'}}>
+              <Badge badgeContent={2} color="secondary">
+                <ShoppingCart />
+              </Badge>
+            </IconButton>
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>

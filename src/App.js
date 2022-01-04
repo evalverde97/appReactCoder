@@ -4,6 +4,7 @@ import {} from '@fortawesome/free-solid-svg-icons';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import CheckoutPage from './components/CheckoutPage';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<ItemListContainer />} />
           <Route exact path="/:id" element={<ItemDetailContainer />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
   );

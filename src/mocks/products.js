@@ -3,7 +3,7 @@ export const products = [{
     id: 1,
     title: 'Khaos',
     description: 'colection of @rudegolem',
-    price: '8888 SOL',
+    price: '8888 SOL (397,2 ETH)',
     image: 'https://www.arweave.net/77vWiFjiuGQlw-v3-8zknbIF13G_7f03lLcYIXn4zhU?ext=png',
     units: 100
     },
@@ -12,7 +12,7 @@ export const products = [{
     title: 'BAYC #6916',
     description: 'Colection of Bored Ape Yatch Club',
     price: '55.51 ETH',
-    image: 'https://lh3.googleusercontent.com/Rtbu3Qmiiyc0bk5Z2gerd8zhgwja2ohzPlTCyx3tQtqt1p7Yr2UseTiXrJYsk31d0I6JRtd9cPtNmphep6bpnwnxMjWj1av3H41ZxGc=w600',
+    image: 'https://lh3.googleusercontent.com/bc3Ppn3j5MfMwQRSN6MqvmJipPzsKzSU9u_i1rlLKF35QOxAKo617FR-Cy1xLHPo476-jr0L1xEr2mjmEwIZY0sHIxyGOqQG9ktiaA=s992',
     units: 100
     },
     {
