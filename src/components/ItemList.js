@@ -6,7 +6,7 @@ import Item from './Item';
 function ItemList ({products}) {
     return (
         <Box  sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}>
-            {products && products.map(product => <Item key={product.id} title={product.title} description={product.description} image={product.image} price={product.price} stock={product.units}/>)}
+            {products && products.map(product => <Item key={product.data().id} title={product.data().title} description={product.data().description} image={product.data().image} price={product.data().price} stock={product.data().stock}/>)}
         </Box>
     )
 };

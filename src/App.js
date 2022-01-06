@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import CheckoutPage from './components/CheckoutPage';
+import SignIn from './components/SignIn';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" element={<ItemListContainer />} />
           <Route exact path="/:id" element={<ItemDetailContainer />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route exact path='/sign-in' element={<SignIn />} />
         </Routes>
       </BrowserRouter>
   );

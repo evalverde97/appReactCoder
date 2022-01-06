@@ -1,6 +1,5 @@
 import { Box, Button } from '@mui/material';
 import React, {useState} from 'react';
-import { Col, Row } from 'react-bootstrap';
 
 const ItemCount = ({initialValue = 0, stock, onAdd}) => {
     const [count, setCount] = useState(initialValue);
