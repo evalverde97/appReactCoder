@@ -1,7 +1,10 @@
 // vista expandida del item con detalle y precio
 import {Container, Row, Col} from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
 function ItemDetail({item}) {
+  const params = useParams();
+
     return (
         <Container>
           <Row>
