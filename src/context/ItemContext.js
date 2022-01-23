@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import propTypes from 'prop-types';
 
-const ItemContext = React.createContext([]);
+export const ItemsContext = React.createContext({});
 
-export default ItemContext;
+export const ItemsContextProvider = ({children}) => {
+	const [items, setItems] = useState([]);
+	const [load, setLoad] = useState(true);
+
+	return (
+		<ItemsContext.Provider value={{items, setItems, load, setLoad}}>
+			{children}
+		</ItemsContext.Provider>
+	);
+};
+
+ItemsContextProvider.propTypes = {children: propTypes.any.isRequired};

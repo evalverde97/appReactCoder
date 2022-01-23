@@ -1,38 +1,32 @@
 import { Box, Button } from '@mui/material';
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+
 
 const ItemCount = ({initialValue = 0, stock, onAdd}) => {
     const [count, setCount] = useState(initialValue);
 
-    const handlerAdd = () => {
-        if(count < stock) {
-            setCount((prev) => prev + 1);
-        } else { alert('No hay más unidades disponibles'); }
-    };
-    const handlerRemove = () => {
-        if(count > 0) {
-            setCount((prev)=> prev -1);
-        }
-    };
-    const addToCart = () => {
-        if (stock > 0){
-            onAdd(count)
-        } else { 
-            alert('No hay unidades disponibles a la venta');
-        }
-    }
+    const handleAddItem = () => count < stock && setCount(count + 1);
+    const handleRemoveItem = () => count > 0 && setCount(count - 1);
 
-  return (
+return (
     <div >  
         <Box  sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: 2, alignItems: 'center'}}>
-            <Button variant="contained" size='medium' onClick={handlerAdd}>+</Button>
+            <Button variant="contained" size='medium' onClick={handleAddItem} >+</Button>
             <Button >{count}</Button>
-            <Button variant="contained" size='medium' onClick={handlerRemove}>-</Button>
+            <Button variant="contained" size='medium' onClick={handleRemoveItem} disabled={count <= 0} >-</Button>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
-            <Button onClick={addToCart}>agregar al carrito</Button>
+            <Button onClick={onAdd}>agregar al carrito</Button>
         </Box>
     </div>
     );
 }
+
+ItemCount.propTypes = {
+	stock: PropTypes.number.isRequired,
+	initialValue: PropTypes.number,
+	onAdd: PropTypes.func.isRequired,
+};
+
 export default ItemCount;

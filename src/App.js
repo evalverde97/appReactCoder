@@ -1,47 +1,29 @@
-import React, { useState, useEffect} from "react";
-import NavBarF from './components/NavBar';
-import {} from '@fortawesome/free-solid-svg-icons'; 
+import React from "react";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import ItemListContainer from './components/ItemListContainer';
+import { Home } from "./components/Home";
+import {NavBar} from './components/NavBar';
+import { ItemsContextProvider } from './context/ItemContext';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import CheckoutPage from './components/CheckoutPage';
-import SignIn from './components/SignIn';
-import {getFirestore, collection, getDocs} from 'firebase/firestore'
-import ItemContext from "./context/ItemContext";
-import NotFound from "./components/NotFound";
-import ItemDetail from "./components/ItemDetail";
+import Cart from './components/Cart';
+import Footer from "./components/Footer";
 
 
 
 
 function App() {
-  const [state, setState] = useState();
-  const db = getFirestore();
-  useEffect(() => {
-    const itemColletction = collection(db,'items');
-  
-    getDocs(itemColletction).then((snapshot) => {
-        if(snapshot.size === 0){
-          console.log('no results')
-        }
-        setState(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}) ));
-        console.log({state})
-    });
-  }, [])
-
   return(
+    <ItemsContextProvider>
       <BrowserRouter>
-        <NavBarF />
+        <NavBar />
         <Routes>
-          <Route exact path="/" element={<ItemListContainer />}>
-          </Route>
-          <Route exact path="/detail" element={<ItemDetailContainer />} />
-          <Route path='/detail/:id' element={<ItemDetail />} />
-          <Route path="/checkout" element={< CheckoutPage />} />
-          <Route exact path='/sign-in' element={<SignIn />} />
-          <Route path='*' element={<NotFound />} />
+          <Route exact path="/" element={<Home />} />
+          <Route path='/category/:id' element={<Home />} />
+          <Route path='/item/:id' element={<ItemDetailContainer />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
+    </ItemsContextProvider>
   );
 }
 
