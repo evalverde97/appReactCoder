@@ -14,13 +14,13 @@ const ItemDetailContainer = () => {
 	const {setLoad} = useContext(ItemsContext);
 	const firebase = new FirebaseClient();
 
-	useEffect(() => getProductFromDbById(), []);
 
 	const getProductFromDbById = async () => {
 		try {
 			setLoad(true);
-			const value = await firebase.getItem(idItem);
+			const value = await firebase.getItems(idItem);
 			setLoad(false);
+			console.log(value)
 			if (value) {
 				setItem(value);
 			} else {
@@ -31,6 +31,8 @@ const ItemDetailContainer = () => {
 			console.error('components/ItemDetailContainer/getItemFromDbById', error);
 		}
 	};
+
+	useEffect(() => getProductFromDbById(), []);
     return (
             item ? <ItemDetail {...item} /> : <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: '100vh'}}><CircularProgress color="secondary"/></Box>
         );

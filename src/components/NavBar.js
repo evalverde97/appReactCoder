@@ -10,7 +10,7 @@ export const NavBar = ()=> {
 
   return (
     <div className='navbox'>
-      <div onClick={() => navigate('/')} className='leftside'>
+      <div onClick={() => navigate('/home')} className='leftside'>
         <img src={logo} alt='NoFungibleStore'/>
       </div>
       <div className='rightside'>

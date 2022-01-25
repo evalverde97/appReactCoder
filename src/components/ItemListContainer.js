@@ -1,7 +1,7 @@
 import { Box, CircularProgress } from "@mui/material";
 import ItemList from "./ItemList";
 import PropTypes from 'prop-types';
-import React, {useState, useEffect, useContext} from "react";
+import React, { useEffect, useContext} from "react";
 import {ItemsContext} from '../context/ItemContext'
 import {FirebaseClient} from '../config/Config'
 import { useParams } from "react-router-dom";
@@ -36,8 +36,6 @@ export default function ItemListContainer() {
         : <ItemList items={items} />  }
       </Box>
     </>
-    // items ? <ItemList items={items} /> 
-    // : <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: '100vh'}}><CircularProgress color="secondary"/></Box>
   );
 }
 

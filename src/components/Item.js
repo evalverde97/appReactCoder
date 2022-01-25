@@ -1,4 +1,3 @@
-import ItemCount from './ItemCount';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -22,7 +21,6 @@ function Item({id,title,image,price,stock, description}) {
             <Typography gutterBottom variant="h5" component="div">
               {title}
             </Typography>
-            <Typography variant='p' >{description}</Typography>
             <Typography variant="body2" color="text.secondary">
               {price} ETH
             </Typography>
